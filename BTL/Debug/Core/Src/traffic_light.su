@@ -1,0 +1,4 @@
+../Core/Src/traffic_light.c:10:6:Light1	16	static
+../Core/Src/traffic_light.c:15:6:Light2	16	static
+../Core/Src/traffic_light.c:19:6:Light3	16	static
+../Core/Src/traffic_light.c:24:6:Light4	16	static

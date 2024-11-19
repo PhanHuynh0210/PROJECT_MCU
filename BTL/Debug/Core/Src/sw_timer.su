@@ -1,0 +1,2 @@
+../Core/Src/sw_timer.c:13:6:setTimer	16	static
+../Core/Src/sw_timer.c:19:6:timerRun	16	static
