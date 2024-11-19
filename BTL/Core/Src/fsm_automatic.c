@@ -6,15 +6,14 @@
  */
 
 #include "fsm_automatic.h"
+#include "lcd.h"
 
 int count_set;
-int toggle_en;
 int seg1;
 int seg2;
 
 void set() {
 	count_set = 0;
-	toggle_en = 0;
 	seg1 = 0;
 	seg2 = 0;
 }

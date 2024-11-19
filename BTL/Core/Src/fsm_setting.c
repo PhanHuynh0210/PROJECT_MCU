@@ -5,7 +5,6 @@
  *      Author: phanh
  */
 
-
 #include "fsm_setting.h"
 
 void fsm_setting() {
@@ -17,13 +16,17 @@ void fsm_setting() {
 				set_red = 0;
 			}
 		}
-		if (timer_flag[6] == 1) {
-
-			setTimer(6, 25);
-		}
+		lcd_goto_XY(0, 0);
+		lcd_send_string("SET RED TIME");
+		lcd_goto_XY(1, 0);
+		lcd_send_string(" RED TIME: ");
+		lcd_display_value(1, 12, set_red);
 		if (isButtonPressed(2) == 1) {
-
-			status = SET_GREEN;
+			Light1(SET, SET);
+			Light2(SET, SET);
+			Light3(SET, SET);
+			Light4(SET, SET);
+			status = MAN_GREEN;
 		}
 
 		break;
@@ -34,25 +37,31 @@ void fsm_setting() {
 				set_green = 0;
 			}
 		}
-		if (timer_flag[6] == 1) {
-
-			setTimer(6, 25);
-		}
+		lcd_goto_XY(0, 0);
+		lcd_send_string("SET GREEN TIME");
+		lcd_goto_XY(1, 0);
+		lcd_send_string(" GREEN TIME: ");
+		lcd_display_value(1, 13, set_green);
 		if (isButtonPressed(2) == 1) {
-
-			status = SET_YELLOW;
+			Light1(SET, SET);
+			Light2(SET, SET);
+			Light3(SET, SET);
+			Light4(SET, SET);
+			status = MAN_YELLOW;
 		}
 
 		break;
 	case SET_YELLOW:
 		if (isButtonPressed(2) == 1) {
-
+			Light1(SET, SET);
+			Light2(SET, SET);
+			Light3(SET, SET);
+			Light4(SET, SET);
 			if (set_green + set_yellow != set_red) {
 				status = SET_RED;
 			} else {
 				upvalue();
 				setTimer(1, 100);
-				setTimer(6, 25);
 				status = AUTO_RED_GREEN;
 			}
 		}
@@ -62,11 +71,11 @@ void fsm_setting() {
 				set_yellow = 0;
 			}
 		}
-		if (timer_flag[6] == 1) {
-
-			setTimer(6, 25);
-		}
-
+		lcd_goto_XY(0, 0);
+		lcd_send_string("SET YELLOW TIME");
+		lcd_goto_XY(1, 0);
+		lcd_send_string(" YELLOW TIME: ");
+		lcd_display_value(1, 14, set_yellow);
 		break;
 	default:
 		break;

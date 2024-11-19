@@ -103,7 +103,8 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
-
+  setvalue();
+  status = INIT;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -111,7 +112,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  fsm_auto_run();
+	  fsm_manual();
+	  fsm_setting();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

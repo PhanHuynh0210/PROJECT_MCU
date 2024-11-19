@@ -6,6 +6,7 @@
  */
 
 #include "lcd.h"
+#include <stdio.h>
 
 extern I2C_HandleTypeDef hi2c1;  // change your handler here accordingly
 
@@ -61,6 +62,12 @@ void lcd_send_string(char *str) {
 
 void lcd_clear_display(void) {
 	lcd_send_cmd(0x01); //clear display
+}
+void lcd_display_value(int row, int col, int value) {
+    char buffer[16];
+    sprintf(buffer, "%d", value);
+    lcd_goto_XY(row, col);
+    lcd_send_string(buffer);
 }
 
 
