@@ -470,21 +470,21 @@ void fsm_auto_run() {
  8000400:	080005b1 	.word	0x080005b1
  8000404:	08000681 	.word	0x08000681
 	case INIT:
-		Light1(SET, SET);
- 8000408:	2101      	movs	r1, #1
- 800040a:	2001      	movs	r0, #1
+		Light1(RESET, RESET);
+ 8000408:	2100      	movs	r1, #0
+ 800040a:	2000      	movs	r0, #0
  800040c:	f001 f832 	bl	8001474 <Light1>
-		Light2(SET, SET);
- 8000410:	2101      	movs	r1, #1
- 8000412:	2001      	movs	r0, #1
+		Light2(RESET, RESET);
+ 8000410:	2100      	movs	r1, #0
+ 8000412:	2000      	movs	r0, #0
  8000414:	f001 f848 	bl	80014a8 <Light2>
-		Light3(SET, SET);
- 8000418:	2101      	movs	r1, #1
- 800041a:	2001      	movs	r0, #1
+		Light3(RESET, RESET);
+ 8000418:	2100      	movs	r1, #0
+ 800041a:	2000      	movs	r0, #0
  800041c:	f001 f860 	bl	80014e0 <Light3>
-		Light4(SET, SET);
- 8000420:	2101      	movs	r1, #1
- 8000422:	2001      	movs	r0, #1
+		Light4(RESET, RESET);
+ 8000420:	2100      	movs	r1, #0
+ 8000422:	2000      	movs	r0, #0
  8000424:	f001 f878 	bl	8001518 <Light4>
 		setTimer(1, 100);
  8000428:	2164      	movs	r1, #100	@ 0x64
@@ -506,21 +506,21 @@ void fsm_auto_run() {
  8000446:	e17d      	b.n	8000744 <fsm_auto_run+0x368>
 
 	case AUTO_RED_GREEN:
-		Light1(RESET, RESET);
- 8000448:	2100      	movs	r1, #0
- 800044a:	2000      	movs	r0, #0
+		Light1(SET, SET);
+ 8000448:	2101      	movs	r1, #1
+ 800044a:	2001      	movs	r0, #1
  800044c:	f001 f812 	bl	8001474 <Light1>
-		Light2(RESET, SET);
- 8000450:	2101      	movs	r1, #1
- 8000452:	2000      	movs	r0, #0
+		Light2(SET, RESET);
+ 8000450:	2100      	movs	r1, #0
+ 8000452:	2001      	movs	r0, #1
  8000454:	f001 f828 	bl	80014a8 <Light2>
-		Light3(RESET, RESET);
- 8000458:	2100      	movs	r1, #0
- 800045a:	2000      	movs	r0, #0
+		Light3(SET, SET);
+ 8000458:	2101      	movs	r1, #1
+ 800045a:	2001      	movs	r0, #1
  800045c:	f001 f840 	bl	80014e0 <Light3>
-		Light4(RESET, SET);
- 8000460:	2101      	movs	r1, #1
- 8000462:	2000      	movs	r0, #0
+		Light4(SET, RESET);
+ 8000460:	2100      	movs	r1, #0
+ 8000462:	2001      	movs	r0, #1
  8000464:	f001 f858 	bl	8001518 <Light4>
 
 		seg1 = red_value - count_set;
@@ -587,42 +587,42 @@ void fsm_auto_run() {
  80004d4:	4b63      	ldr	r3, [pc, #396]	@ (8000664 <fsm_auto_run+0x288>)
  80004d6:	220c      	movs	r2, #12
  80004d8:	601a      	str	r2, [r3, #0]
-			Light1(SET, SET);
- 80004da:	2101      	movs	r1, #1
- 80004dc:	2001      	movs	r0, #1
+			Light1(RESET, RESET);
+ 80004da:	2100      	movs	r1, #0
+ 80004dc:	2000      	movs	r0, #0
  80004de:	f000 ffc9 	bl	8001474 <Light1>
-			Light2(SET, SET);
- 80004e2:	2101      	movs	r1, #1
- 80004e4:	2001      	movs	r0, #1
+			Light2(RESET, RESET);
+ 80004e2:	2100      	movs	r1, #0
+ 80004e4:	2000      	movs	r0, #0
  80004e6:	f000 ffdf 	bl	80014a8 <Light2>
-			Light3(SET, SET);
- 80004ea:	2101      	movs	r1, #1
- 80004ec:	2001      	movs	r0, #1
+			Light3(RESET, RESET);
+ 80004ea:	2100      	movs	r1, #0
+ 80004ec:	2000      	movs	r0, #0
  80004ee:	f000 fff7 	bl	80014e0 <Light3>
-			Light4(SET, SET);
- 80004f2:	2101      	movs	r1, #1
- 80004f4:	2001      	movs	r0, #1
+			Light4(RESET, RESET);
+ 80004f2:	2100      	movs	r1, #0
+ 80004f4:	2000      	movs	r0, #0
  80004f6:	f001 f80f 	bl	8001518 <Light4>
 		}
 		break;
  80004fa:	e11c      	b.n	8000736 <fsm_auto_run+0x35a>
 
 	case AUTO_RED_YELLOW:
-		Light1(RESET, RESET);
- 80004fc:	2100      	movs	r1, #0
- 80004fe:	2000      	movs	r0, #0
+		Light1(SET, SET);
+ 80004fc:	2101      	movs	r1, #1
+ 80004fe:	2001      	movs	r0, #1
  8000500:	f000 ffb8 	bl	8001474 <Light1>
-		Light2(SET, RESET);
- 8000504:	2100      	movs	r1, #0
- 8000506:	2001      	movs	r0, #1
+		Light2(RESET, SET);
+ 8000504:	2101      	movs	r1, #1
+ 8000506:	2000      	movs	r0, #0
  8000508:	f000 ffce 	bl	80014a8 <Light2>
-		Light3(RESET, RESET);
- 800050c:	2100      	movs	r1, #0
- 800050e:	2000      	movs	r0, #0
+		Light3(SET, SET);
+ 800050c:	2101      	movs	r1, #1
+ 800050e:	2001      	movs	r0, #1
  8000510:	f000 ffe6 	bl	80014e0 <Light3>
-		Light4(SET, RESET);
- 8000514:	2100      	movs	r1, #0
- 8000516:	2001      	movs	r0, #1
+		Light4(RESET, SET);
+ 8000514:	2101      	movs	r1, #1
+ 8000516:	2000      	movs	r0, #0
  8000518:	f000 fffe 	bl	8001518 <Light4>
 
 		seg1 = yellow_value - count_set;
@@ -689,42 +689,42 @@ void fsm_auto_run() {
  8000588:	4b36      	ldr	r3, [pc, #216]	@ (8000664 <fsm_auto_run+0x288>)
  800058a:	220c      	movs	r2, #12
  800058c:	601a      	str	r2, [r3, #0]
-			Light1(SET, SET);
- 800058e:	2101      	movs	r1, #1
- 8000590:	2001      	movs	r0, #1
+			Light1(RESET, RESET);
+ 800058e:	2100      	movs	r1, #0
+ 8000590:	2000      	movs	r0, #0
  8000592:	f000 ff6f 	bl	8001474 <Light1>
-			Light2(SET, SET);
- 8000596:	2101      	movs	r1, #1
- 8000598:	2001      	movs	r0, #1
+			Light2(RESET, RESET);
+ 8000596:	2100      	movs	r1, #0
+ 8000598:	2000      	movs	r0, #0
  800059a:	f000 ff85 	bl	80014a8 <Light2>
-			Light3(SET, SET);
- 800059e:	2101      	movs	r1, #1
- 80005a0:	2001      	movs	r0, #1
+			Light3(RESET, RESET);
+ 800059e:	2100      	movs	r1, #0
+ 80005a0:	2000      	movs	r0, #0
  80005a2:	f000 ff9d 	bl	80014e0 <Light3>
-			Light4(SET, SET);
- 80005a6:	2101      	movs	r1, #1
- 80005a8:	2001      	movs	r0, #1
+			Light4(RESET, RESET);
+ 80005a6:	2100      	movs	r1, #0
+ 80005a8:	2000      	movs	r0, #0
  80005aa:	f000 ffb5 	bl	8001518 <Light4>
 		}
 		break;
  80005ae:	e0c4      	b.n	800073a <fsm_auto_run+0x35e>
 
 	case AUTO_GREEN_RED:
-		Light1(RESET, SET);
- 80005b0:	2101      	movs	r1, #1
- 80005b2:	2000      	movs	r0, #0
+		Light1(SET, RESET);
+ 80005b0:	2100      	movs	r1, #0
+ 80005b2:	2001      	movs	r0, #1
  80005b4:	f000 ff5e 	bl	8001474 <Light1>
-		Light2(RESET, RESET);
- 80005b8:	2100      	movs	r1, #0
- 80005ba:	2000      	movs	r0, #0
+		Light2(SET, SET);
+ 80005b8:	2101      	movs	r1, #1
+ 80005ba:	2001      	movs	r0, #1
  80005bc:	f000 ff74 	bl	80014a8 <Light2>
-		Light3(RESET, SET);
- 80005c0:	2101      	movs	r1, #1
- 80005c2:	2000      	movs	r0, #0
+		Light3(SET, RESET);
+ 80005c0:	2100      	movs	r1, #0
+ 80005c2:	2001      	movs	r0, #1
  80005c4:	f000 ff8c 	bl	80014e0 <Light3>
-		Light4(RESET, RESET);
- 80005c8:	2100      	movs	r1, #0
- 80005ca:	2000      	movs	r0, #0
+		Light4(SET, SET);
+ 80005c8:	2101      	movs	r1, #1
+ 80005ca:	2001      	movs	r0, #1
  80005cc:	f000 ffa4 	bl	8001518 <Light4>
 		seg1 = green_value - count_set;
  80005d0:	4b28      	ldr	r3, [pc, #160]	@ (8000674 <fsm_auto_run+0x298>)
@@ -790,21 +790,21 @@ void fsm_auto_run() {
  800063c:	4b09      	ldr	r3, [pc, #36]	@ (8000664 <fsm_auto_run+0x288>)
  800063e:	220c      	movs	r2, #12
  8000640:	601a      	str	r2, [r3, #0]
-			Light1(SET, SET);
- 8000642:	2101      	movs	r1, #1
- 8000644:	2001      	movs	r0, #1
+			Light1(RESET, RESET);
+ 8000642:	2100      	movs	r1, #0
+ 8000644:	2000      	movs	r0, #0
  8000646:	f000 ff15 	bl	8001474 <Light1>
-			Light2(SET, SET);
- 800064a:	2101      	movs	r1, #1
- 800064c:	2001      	movs	r0, #1
+			Light2(RESET, RESET);
+ 800064a:	2100      	movs	r1, #0
+ 800064c:	2000      	movs	r0, #0
  800064e:	f000 ff2b 	bl	80014a8 <Light2>
-			Light3(SET, SET);
- 8000652:	2101      	movs	r1, #1
- 8000654:	2001      	movs	r0, #1
+			Light3(RESET, RESET);
+ 8000652:	2100      	movs	r1, #0
+ 8000654:	2000      	movs	r0, #0
  8000656:	f000 ff43 	bl	80014e0 <Light3>
-			Light4(SET, SET);
- 800065a:	2101      	movs	r1, #1
- 800065c:	2001      	movs	r0, #1
+			Light4(RESET, RESET);
+ 800065a:	2100      	movs	r1, #0
+ 800065c:	2000      	movs	r0, #0
  800065e:	f000 ff5b 	bl	8001518 <Light4>
 		}
 		break;
@@ -818,21 +818,21 @@ void fsm_auto_run() {
  800067c:	200000e4 	.word	0x200000e4
 
 	case AUTO_YELLOW_RED:
-		Light1(SET, RESET);
- 8000680:	2100      	movs	r1, #0
- 8000682:	2001      	movs	r0, #1
+		Light1(RESET, SET);
+ 8000680:	2101      	movs	r1, #1
+ 8000682:	2000      	movs	r0, #0
  8000684:	f000 fef6 	bl	8001474 <Light1>
-		Light2(RESET, RESET);
- 8000688:	2100      	movs	r1, #0
- 800068a:	2000      	movs	r0, #0
+		Light2(SET, SET);
+ 8000688:	2101      	movs	r1, #1
+ 800068a:	2001      	movs	r0, #1
  800068c:	f000 ff0c 	bl	80014a8 <Light2>
-		Light3(SET, RESET);
- 8000690:	2100      	movs	r1, #0
- 8000692:	2001      	movs	r0, #1
+		Light3(RESET, SET);
+ 8000690:	2101      	movs	r1, #1
+ 8000692:	2000      	movs	r0, #0
  8000694:	f000 ff24 	bl	80014e0 <Light3>
-		Light4(RESET, RESET);
- 8000698:	2100      	movs	r1, #0
- 800069a:	2000      	movs	r0, #0
+		Light4(SET, SET);
+ 8000698:	2101      	movs	r1, #1
+ 800069a:	2001      	movs	r0, #1
  800069c:	f000 ff3c 	bl	8001518 <Light4>
 		seg1 = yellow_value - count_set;
  80006a0:	4b29      	ldr	r3, [pc, #164]	@ (8000748 <fsm_auto_run+0x36c>)
@@ -898,21 +898,21 @@ void fsm_auto_run() {
  800070a:	4b15      	ldr	r3, [pc, #84]	@ (8000760 <fsm_auto_run+0x384>)
  800070c:	220c      	movs	r2, #12
  800070e:	601a      	str	r2, [r3, #0]
-			Light1(SET, SET);
- 8000710:	2101      	movs	r1, #1
- 8000712:	2001      	movs	r0, #1
+			Light1(RESET, RESET);
+ 8000710:	2100      	movs	r1, #0
+ 8000712:	2000      	movs	r0, #0
  8000714:	f000 feae 	bl	8001474 <Light1>
-			Light2(SET, SET);
- 8000718:	2101      	movs	r1, #1
- 800071a:	2001      	movs	r0, #1
+			Light2(RESET, RESET);
+ 8000718:	2100      	movs	r1, #0
+ 800071a:	2000      	movs	r0, #0
  800071c:	f000 fec4 	bl	80014a8 <Light2>
-			Light3(SET, SET);
- 8000720:	2101      	movs	r1, #1
- 8000722:	2001      	movs	r0, #1
+			Light3(RESET, RESET);
+ 8000720:	2100      	movs	r1, #0
+ 8000722:	2000      	movs	r0, #0
  8000724:	f000 fedc 	bl	80014e0 <Light3>
-			Light4(SET, SET);
- 8000728:	2101      	movs	r1, #1
- 800072a:	2001      	movs	r0, #1
+			Light4(RESET, RESET);
+ 8000728:	2100      	movs	r1, #0
+ 800072a:	2000      	movs	r0, #0
  800072c:	f000 fef4 	bl	8001518 <Light4>
 		}
 		break;
@@ -972,21 +972,21 @@ void fsm_manual() {
 	default:
 		break;
  8000780:	e0f6      	b.n	8000970 <fsm_manual+0x20c>
-		Light1(RESET, RESET);
- 8000782:	2100      	movs	r1, #0
- 8000784:	2000      	movs	r0, #0
+		Light1(SET, SET);
+ 8000782:	2101      	movs	r1, #1
+ 8000784:	2001      	movs	r0, #1
  8000786:	f000 fe75 	bl	8001474 <Light1>
-		Light2(RESET, RESET);
- 800078a:	2100      	movs	r1, #0
- 800078c:	2000      	movs	r0, #0
+		Light2(SET, SET);
+ 800078a:	2101      	movs	r1, #1
+ 800078c:	2001      	movs	r0, #1
  800078e:	f000 fe8b 	bl	80014a8 <Light2>
-		Light3(RESET, RESET);
- 8000792:	2100      	movs	r1, #0
- 8000794:	2000      	movs	r0, #0
+		Light3(SET, SET);
+ 8000792:	2101      	movs	r1, #1
+ 8000794:	2001      	movs	r0, #1
  8000796:	f000 fea3 	bl	80014e0 <Light3>
-		Light4(RESET, RESET);
- 800079a:	2100      	movs	r1, #0
- 800079c:	2000      	movs	r0, #0
+		Light4(SET, SET);
+ 800079a:	2101      	movs	r1, #1
+ 800079c:	2001      	movs	r0, #1
  800079e:	f000 febb 	bl	8001518 <Light4>
 		lcd_goto_XY(0, 0);
  80007a2:	2100      	movs	r1, #0
@@ -1058,21 +1058,21 @@ void fsm_manual() {
  8000822:	f000 fa83 	bl	8000d2c <lcd_display_value>
 		break;
  8000826:	e0a5      	b.n	8000974 <fsm_manual+0x210>
-		Light1(RESET, SET);
- 8000828:	2101      	movs	r1, #1
- 800082a:	2000      	movs	r0, #0
+		Light1(SET, RESET);
+ 8000828:	2100      	movs	r1, #0
+ 800082a:	2001      	movs	r0, #1
  800082c:	f000 fe22 	bl	8001474 <Light1>
-		Light2(RESET, SET);
- 8000830:	2101      	movs	r1, #1
- 8000832:	2000      	movs	r0, #0
+		Light2(SET, RESET);
+ 8000830:	2100      	movs	r1, #0
+ 8000832:	2001      	movs	r0, #1
  8000834:	f000 fe38 	bl	80014a8 <Light2>
-		Light3(RESET, SET);
- 8000838:	2101      	movs	r1, #1
- 800083a:	2000      	movs	r0, #0
+		Light3(SET, RESET);
+ 8000838:	2100      	movs	r1, #0
+ 800083a:	2001      	movs	r0, #1
  800083c:	f000 fe50 	bl	80014e0 <Light3>
-		Light4(RESET, SET);
- 8000840:	2101      	movs	r1, #1
- 8000842:	2000      	movs	r0, #0
+		Light4(SET, RESET);
+ 8000840:	2100      	movs	r1, #0
+ 8000842:	2001      	movs	r0, #1
  8000844:	f000 fe68 	bl	8001518 <Light4>
 		lcd_goto_XY(0, 0);
  8000848:	2100      	movs	r1, #0
@@ -1144,21 +1144,21 @@ void fsm_manual() {
  80008c6:	f000 fa31 	bl	8000d2c <lcd_display_value>
 		break;
  80008ca:	e055      	b.n	8000978 <fsm_manual+0x214>
-		Light1(SET, RESET);
- 80008cc:	2100      	movs	r1, #0
- 80008ce:	2001      	movs	r0, #1
+		Light1(RESET, SET);
+ 80008cc:	2101      	movs	r1, #1
+ 80008ce:	2000      	movs	r0, #0
  80008d0:	f000 fdd0 	bl	8001474 <Light1>
-		Light2(SET, RESET);
- 80008d4:	2100      	movs	r1, #0
- 80008d6:	2001      	movs	r0, #1
+		Light2(RESET, SET);
+ 80008d4:	2101      	movs	r1, #1
+ 80008d6:	2000      	movs	r0, #0
  80008d8:	f000 fde6 	bl	80014a8 <Light2>
-		Light3(SET, RESET);
- 80008dc:	2100      	movs	r1, #0
- 80008de:	2001      	movs	r0, #1
+		Light3(RESET, SET);
+ 80008dc:	2101      	movs	r1, #1
+ 80008de:	2000      	movs	r0, #0
  80008e0:	f000 fdfe 	bl	80014e0 <Light3>
-		Light4(SET, RESET);
- 80008e4:	2100      	movs	r1, #0
- 80008e6:	2001      	movs	r0, #1
+		Light4(RESET, SET);
+ 80008e4:	2101      	movs	r1, #1
+ 80008e6:	2000      	movs	r0, #0
  80008e8:	f000 fe16 	bl	8001518 <Light4>
 		lcd_goto_XY(0, 0);
  80008ec:	2100      	movs	r1, #0
@@ -1332,21 +1332,21 @@ void fsm_setting() {
  8000a1e:	4603      	mov	r3, r0
  8000a20:	2b01      	cmp	r3, #1
  8000a22:	f040 80ab 	bne.w	8000b7c <fsm_setting+0x1d0>
-			Light1(SET, SET);
- 8000a26:	2101      	movs	r1, #1
- 8000a28:	2001      	movs	r0, #1
+			Light1(RESET, RESET);
+ 8000a26:	2100      	movs	r1, #0
+ 8000a28:	2000      	movs	r0, #0
  8000a2a:	f000 fd23 	bl	8001474 <Light1>
-			Light2(SET, SET);
- 8000a2e:	2101      	movs	r1, #1
- 8000a30:	2001      	movs	r0, #1
+			Light2(RESET, RESET);
+ 8000a2e:	2100      	movs	r1, #0
+ 8000a30:	2000      	movs	r0, #0
  8000a32:	f000 fd39 	bl	80014a8 <Light2>
-			Light3(SET, SET);
- 8000a36:	2101      	movs	r1, #1
- 8000a38:	2001      	movs	r0, #1
+			Light3(RESET, RESET);
+ 8000a36:	2100      	movs	r1, #0
+ 8000a38:	2000      	movs	r0, #0
  8000a3a:	f000 fd51 	bl	80014e0 <Light3>
-			Light4(SET, SET);
- 8000a3e:	2101      	movs	r1, #1
- 8000a40:	2001      	movs	r0, #1
+			Light4(RESET, RESET);
+ 8000a3e:	2100      	movs	r1, #0
+ 8000a40:	2000      	movs	r0, #0
  8000a42:	f000 fd69 	bl	8001518 <Light4>
 			status = MAN_GREEN;
  8000a46:	4b50      	ldr	r3, [pc, #320]	@ (8000b88 <fsm_setting+0x1dc>)
@@ -1402,21 +1402,21 @@ void fsm_setting() {
  8000aa2:	4603      	mov	r3, r0
  8000aa4:	2b01      	cmp	r3, #1
  8000aa6:	d16b      	bne.n	8000b80 <fsm_setting+0x1d4>
-			Light1(SET, SET);
- 8000aa8:	2101      	movs	r1, #1
- 8000aaa:	2001      	movs	r0, #1
+			Light1(RESET, RESET);
+ 8000aa8:	2100      	movs	r1, #0
+ 8000aaa:	2000      	movs	r0, #0
  8000aac:	f000 fce2 	bl	8001474 <Light1>
-			Light2(SET, SET);
- 8000ab0:	2101      	movs	r1, #1
- 8000ab2:	2001      	movs	r0, #1
+			Light2(RESET, RESET);
+ 8000ab0:	2100      	movs	r1, #0
+ 8000ab2:	2000      	movs	r0, #0
  8000ab4:	f000 fcf8 	bl	80014a8 <Light2>
-			Light3(SET, SET);
- 8000ab8:	2101      	movs	r1, #1
- 8000aba:	2001      	movs	r0, #1
+			Light3(RESET, RESET);
+ 8000ab8:	2100      	movs	r1, #0
+ 8000aba:	2000      	movs	r0, #0
  8000abc:	f000 fd10 	bl	80014e0 <Light3>
-			Light4(SET, SET);
- 8000ac0:	2101      	movs	r1, #1
- 8000ac2:	2001      	movs	r0, #1
+			Light4(RESET, RESET);
+ 8000ac0:	2100      	movs	r1, #0
+ 8000ac2:	2000      	movs	r0, #0
  8000ac4:	f000 fd28 	bl	8001518 <Light4>
 			status = MAN_YELLOW;
  8000ac8:	4b2f      	ldr	r3, [pc, #188]	@ (8000b88 <fsm_setting+0x1dc>)
@@ -1430,21 +1430,21 @@ void fsm_setting() {
  8000ad6:	4603      	mov	r3, r0
  8000ad8:	2b01      	cmp	r3, #1
  8000ada:	d125      	bne.n	8000b28 <fsm_setting+0x17c>
-			Light1(SET, SET);
- 8000adc:	2101      	movs	r1, #1
- 8000ade:	2001      	movs	r0, #1
+			Light1(RESET, RESET);
+ 8000adc:	2100      	movs	r1, #0
+ 8000ade:	2000      	movs	r0, #0
  8000ae0:	f000 fcc8 	bl	8001474 <Light1>
-			Light2(SET, SET);
- 8000ae4:	2101      	movs	r1, #1
- 8000ae6:	2001      	movs	r0, #1
+			Light2(RESET, RESET);
+ 8000ae4:	2100      	movs	r1, #0
+ 8000ae6:	2000      	movs	r0, #0
  8000ae8:	f000 fcde 	bl	80014a8 <Light2>
-			Light3(SET, SET);
- 8000aec:	2101      	movs	r1, #1
- 8000aee:	2001      	movs	r0, #1
+			Light3(RESET, RESET);
+ 8000aec:	2100      	movs	r1, #0
+ 8000aee:	2000      	movs	r0, #0
  8000af0:	f000 fcf6 	bl	80014e0 <Light3>
-			Light4(SET, SET);
- 8000af4:	2101      	movs	r1, #1
- 8000af6:	2001      	movs	r0, #1
+			Light4(RESET, RESET);
+ 8000af4:	2100      	movs	r1, #0
+ 8000af6:	2000      	movs	r0, #0
  8000af8:	f000 fd0e 	bl	8001518 <Light4>
 			if (set_green + set_yellow != set_red) {
  8000afc:	4b26      	ldr	r3, [pc, #152]	@ (8000b98 <fsm_setting+0x1ec>)

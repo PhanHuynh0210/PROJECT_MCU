@@ -10,10 +10,10 @@
 void fsm_manual() {
 	switch (status) {
 	case MAN_RED:
-		Light1(RESET, RESET);
-		Light2(RESET, RESET);
-		Light3(RESET, RESET);
-		Light4(RESET, RESET);
+		Light1(SET, SET);
+		Light2(SET, SET);
+		Light3(SET, SET);
+		Light4(SET, SET);
 		lcd_goto_XY(0, 0);
 		lcd_send_string("SET RED TIME");
 		lcd_goto_XY(1, 0);
@@ -34,10 +34,10 @@ void fsm_manual() {
 		break;
 
 	case MAN_GREEN:
-		Light1(RESET, SET);
-		Light2(RESET, SET);
-		Light3(RESET, SET);
-		Light4(RESET, SET);
+		Light1(SET, RESET);
+		Light2(SET, RESET);
+		Light3(SET, RESET);
+		Light4(SET, RESET);
 		lcd_goto_XY(0, 0);
 		lcd_send_string("SET GREEN TIME");
 		lcd_goto_XY(1, 0);
@@ -58,10 +58,10 @@ void fsm_manual() {
 		break;
 
 	case MAN_YELLOW:
-		Light1(SET, RESET);
-		Light2(SET, RESET);
-		Light3(SET, RESET);
-		Light4(SET, RESET);
+		Light1(RESET, SET);
+		Light2(RESET, SET);
+		Light3(RESET, SET);
+		Light4(RESET, SET);
 		lcd_goto_XY(0, 0);
 		lcd_send_string("SET YELLOW TIME");
 		lcd_goto_XY(1, 0);

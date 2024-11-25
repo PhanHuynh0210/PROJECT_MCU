@@ -29,10 +29,10 @@ void updateCountSet() {
 void fsm_auto_run() {
 	switch (status) {
 	case INIT:
-		Light1(SET, SET);
-		Light2(SET, SET);
-		Light3(SET, SET);
-		Light4(SET, SET);
+		Light1(RESET, RESET);
+		Light2(RESET, RESET);
+		Light3(RESET, RESET);
+		Light4(RESET, RESET);
 		setTimer(1, 100);
 		setTimer(6, 25);
 		set();
@@ -41,10 +41,10 @@ void fsm_auto_run() {
 		break;
 
 	case AUTO_RED_GREEN:
-		Light1(RESET, RESET);
-		Light2(RESET, SET);
-		Light3(RESET, RESET);
-		Light4(RESET, SET);
+		Light1(SET, SET);
+		Light2(SET, RESET);
+		Light3(SET, SET);
+		Light4(SET, RESET);
 
 		seg1 = red_value - count_set;
 		seg2 = green_value - count_set;
@@ -59,18 +59,18 @@ void fsm_auto_run() {
 		if (isButtonPressed(0) == 1) {
 			set();
 			status = MAN_RED;
-			Light1(SET, SET);
-			Light2(SET, SET);
-			Light3(SET, SET);
-			Light4(SET, SET);
+			Light1(RESET, RESET);
+			Light2(RESET, RESET);
+			Light3(RESET, RESET);
+			Light4(RESET, RESET);
 		}
 		break;
 
 	case AUTO_RED_YELLOW:
-		Light1(RESET, RESET);
-		Light2(SET, RESET);
-		Light3(RESET, RESET);
-		Light4(SET, RESET);
+		Light1(SET, SET);
+		Light2(RESET, SET);
+		Light3(SET, SET);
+		Light4(RESET, SET);
 
 		seg1 = yellow_value - count_set;
 		seg2 = yellow_value - count_set;
@@ -85,18 +85,18 @@ void fsm_auto_run() {
 		if (isButtonPressed(0) == 1) {
 			set();
 			status = MAN_RED;
-			Light1(SET, SET);
-			Light2(SET, SET);
-			Light3(SET, SET);
-			Light4(SET, SET);
+			Light1(RESET, RESET);
+			Light2(RESET, RESET);
+			Light3(RESET, RESET);
+			Light4(RESET, RESET);
 		}
 		break;
 
 	case AUTO_GREEN_RED:
-		Light1(RESET, SET);
-		Light2(RESET, RESET);
-		Light3(RESET, SET);
-		Light4(RESET, RESET);
+		Light1(SET, RESET);
+		Light2(SET, SET);
+		Light3(SET, RESET);
+		Light4(SET, SET);
 		seg1 = green_value - count_set;
 		seg2 = red_value - count_set;
 		lcd_display_value(0, 0, seg1);
@@ -110,18 +110,18 @@ void fsm_auto_run() {
 		if (isButtonPressed(0) == 1) {
 			set();
 			status = MAN_RED;
-			Light1(SET, SET);
-			Light2(SET, SET);
-			Light3(SET, SET);
-			Light4(SET, SET);
+			Light1(RESET, RESET);
+			Light2(RESET, RESET);
+			Light3(RESET, RESET);
+			Light4(RESET, RESET);
 		}
 		break;
 
 	case AUTO_YELLOW_RED:
-		Light1(SET, RESET);
-		Light2(RESET, RESET);
-		Light3(SET, RESET);
-		Light4(RESET, RESET);
+		Light1(RESET, SET);
+		Light2(SET, SET);
+		Light3(RESET, SET);
+		Light4(SET, SET);
 		seg1 = yellow_value - count_set;
 		seg2 = yellow_value - count_set;
 		lcd_display_value(0, 0, seg1);
@@ -135,10 +135,10 @@ void fsm_auto_run() {
 		if (isButtonPressed(0) == 1) {
 			set();
 			status = MAN_RED;
-			Light1(SET, SET);
-			Light2(SET, SET);
-			Light3(SET, SET);
-			Light4(SET, SET);
+			Light1(RESET, RESET);
+			Light2(RESET, RESET);
+			Light3(RESET, RESET);
+			Light4(RESET, RESET);
 		}
 		break;
 

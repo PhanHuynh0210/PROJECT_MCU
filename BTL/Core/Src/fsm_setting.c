@@ -22,10 +22,10 @@ void fsm_setting() {
 		lcd_send_string(" RED TIME: ");
 		lcd_display_value(1, 12, set_red);
 		if (isButtonPressed(2) == 1) {
-			Light1(SET, SET);
-			Light2(SET, SET);
-			Light3(SET, SET);
-			Light4(SET, SET);
+			Light1(RESET, RESET);
+			Light2(RESET, RESET);
+			Light3(RESET, RESET);
+			Light4(RESET, RESET);
 			status = MAN_GREEN;
 		}
 
@@ -43,20 +43,20 @@ void fsm_setting() {
 		lcd_send_string(" GREEN TIME: ");
 		lcd_display_value(1, 13, set_green);
 		if (isButtonPressed(2) == 1) {
-			Light1(SET, SET);
-			Light2(SET, SET);
-			Light3(SET, SET);
-			Light4(SET, SET);
+			Light1(RESET, RESET);
+			Light2(RESET, RESET);
+			Light3(RESET, RESET);
+			Light4(RESET, RESET);
 			status = MAN_YELLOW;
 		}
 
 		break;
 	case SET_YELLOW:
 		if (isButtonPressed(2) == 1) {
-			Light1(SET, SET);
-			Light2(SET, SET);
-			Light3(SET, SET);
-			Light4(SET, SET);
+			Light1(RESET, RESET);
+			Light2(RESET, RESET);
+			Light3(RESET, RESET);
+			Light4(RESET, RESET);
 			if (set_green + set_yellow != set_red) {
 				status = SET_RED;
 			} else {
