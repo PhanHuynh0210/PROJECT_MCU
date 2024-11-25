@@ -16,11 +16,11 @@ void fsm_setting() {
 				set_red = 0;
 			}
 		}
-		lcd_goto_XY(0, 0);
-		lcd_send_string("SET RED TIME");
 		lcd_goto_XY(1, 0);
+		lcd_send_string("SET RED TIME");
+		lcd_goto_XY(2, 0);
 		lcd_send_string(" RED TIME: ");
-		lcd_display_value(1, 12, set_red);
+		lcd_display_value(2, 12, set_red);
 		if (isButtonPressed(2) == 1) {
 			Light1(RESET, RESET);
 			Light2(RESET, RESET);
@@ -37,11 +37,11 @@ void fsm_setting() {
 				set_green = 0;
 			}
 		}
-		lcd_goto_XY(0, 0);
-		lcd_send_string("SET GREEN TIME");
 		lcd_goto_XY(1, 0);
+		lcd_send_string("SET GREEN TIME");
+		lcd_goto_XY(2, 0);
 		lcd_send_string(" GREEN TIME: ");
-		lcd_display_value(1, 13, set_green);
+		lcd_display_value(2,13, set_green);
 		if (isButtonPressed(2) == 1) {
 			Light1(RESET, RESET);
 			Light2(RESET, RESET);
@@ -62,6 +62,7 @@ void fsm_setting() {
 			} else {
 				upvalue();
 				setTimer(1, 100);
+				lcd_clear_display();
 				status = AUTO_RED_GREEN;
 			}
 		}
@@ -71,11 +72,11 @@ void fsm_setting() {
 				set_yellow = 0;
 			}
 		}
-		lcd_goto_XY(0, 0);
-		lcd_send_string("SET YELLOW TIME");
 		lcd_goto_XY(1, 0);
+		lcd_send_string("SET YELLOW TIME");
+		lcd_goto_XY(2, 0);
 		lcd_send_string(" YELLOW TIME: ");
-		lcd_display_value(1, 14, set_yellow);
+		lcd_display_value(2, 14, set_yellow);
 		break;
 	default:
 		break;

@@ -21,7 +21,7 @@ void set() {
 void updateCountSet() {
 	if (timer_flag[1] == 1) {
 		count_set++;
-		setTimer(1, 100);
+		setTimer(1, 1000);
 	}
 }
 
@@ -33,8 +33,7 @@ void fsm_auto_run() {
 		Light2(RESET, RESET);
 		Light3(RESET, RESET);
 		Light4(RESET, RESET);
-		setTimer(1, 100);
-		setTimer(6, 25);
+		setTimer(1, 1000);
 		set();
         lcd_clear_display();
 		status = AUTO_RED_GREEN;
@@ -48,8 +47,8 @@ void fsm_auto_run() {
 
 		seg1 = red_value - count_set;
 		seg2 = green_value - count_set;
-		lcd_display_value(0, 0, seg1);
-		lcd_display_value(1, 0, seg2);
+		lcd_display_value(1, 0, seg1);
+		lcd_display_value(2, 0, seg2);
 
 		updateCountSet();
 		if (count_set >= red_value - yellow_value) {
@@ -74,8 +73,8 @@ void fsm_auto_run() {
 
 		seg1 = yellow_value - count_set;
 		seg2 = yellow_value - count_set;
-		lcd_display_value(0, 0, seg1);
-		lcd_display_value(1, 0, seg2);
+		lcd_display_value(1, 0, seg1);
+		lcd_display_value(2, 0, seg2);
 
 		updateCountSet();
 		if (count_set >= red_value - green_value) {
@@ -99,8 +98,8 @@ void fsm_auto_run() {
 		Light4(SET, SET);
 		seg1 = green_value - count_set;
 		seg2 = red_value - count_set;
-		lcd_display_value(0, 0, seg1);
-		lcd_display_value(1, 0, seg2);
+		lcd_display_value(1, 0, seg1);
+		lcd_display_value(2, 0, seg2);
 
 		updateCountSet();
 		if (count_set >= red_value - yellow_value) {
@@ -124,8 +123,8 @@ void fsm_auto_run() {
 		Light4(SET, SET);
 		seg1 = yellow_value - count_set;
 		seg2 = yellow_value - count_set;
-		lcd_display_value(0, 0, seg1);
-		lcd_display_value(1, 0, seg2);
+		lcd_display_value(1, 0, seg1);
+		lcd_display_value(2, 0, seg2);
 
 		updateCountSet();
 		if (count_set >= red_value - green_value) {
