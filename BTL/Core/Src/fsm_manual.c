@@ -45,6 +45,7 @@ void fsm_manual() {
 		lcd_display_value(2, 13, set_green);
 		if (isButtonPressed(0) == 1) {
 			status = MAN_YELLOW;
+
 		}
 		if (isButtonPressed(1) == 1) {
 			set_green++;
@@ -69,6 +70,8 @@ void fsm_manual() {
 		lcd_display_value(2, 14, set_yellow);
 		if (isButtonPressed(0) == 1) {
 			status = AUTO_RED_GREEN;
+	        lcd_clear_display();
+			setTimer(1, 1000);
 		}
 		if (isButtonPressed(1) == 1) {
 			set_yellow++;
@@ -78,6 +81,7 @@ void fsm_manual() {
 			lcd_goto_XY(2, 0);
 			lcd_send_string(" YELLOW TIME: ");
 			lcd_display_value(2, 14, set_yellow);
+
 		}
 		break;
 

@@ -22,9 +22,9 @@ void updateCountSet() {
 	if (timer_flag[1] == 1) {
 		count_set++;
 		setTimer(1, 1000);
+		lcd_clear_display();
 	}
 }
-
 
 void fsm_auto_run() {
 	switch (status) {
@@ -34,8 +34,10 @@ void fsm_auto_run() {
 		Light3(RESET, RESET);
 		Light4(RESET, RESET);
 		setTimer(1, 1000);
+		setTimer(2, 3000);
+
 		set();
-        lcd_clear_display();
+		lcd_clear_display();
 		status = AUTO_RED_GREEN;
 		break;
 
@@ -49,7 +51,6 @@ void fsm_auto_run() {
 		seg2 = green_value - count_set;
 		lcd_display_value(1, 0, seg1);
 		lcd_display_value(2, 0, seg2);
-
 		updateCountSet();
 		if (count_set >= red_value - yellow_value) {
 			count_set = 0;
@@ -138,6 +139,17 @@ void fsm_auto_run() {
 			Light2(RESET, RESET);
 			Light3(RESET, RESET);
 			Light4(RESET, RESET);
+		}
+		if (isButtonPressed(2) == 1) {
+			status = AUTO_RED_GREEN;
+			setTimer(1, 1000);
+			lcd_clear_display();
+			Light1(RESET, RESET);
+			Light2(RESET, RESET);
+			Light3(RESET, RESET);
+			Light4(RESET, RESET);
+			upvalue();
+
 		}
 		break;
 
