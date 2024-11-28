@@ -23,6 +23,8 @@ void updateCountSet() {
 		count_set++;
 		setTimer(1, 1000);
 		lcd_clear_display();
+		setTimer(2,3000);
+
 	}
 }
 

@@ -81,8 +81,8 @@ void fsm_manual() {
 			lcd_goto_XY(2, 0);
 			lcd_send_string(" YELLOW TIME: ");
 			lcd_display_value(2, 14, set_yellow);
-
 		}
+
 		break;
 
 	default:

@@ -6,6 +6,7 @@
  */
 
 #include "fsm_setting.h"
+#include "fsm_automatic.h"
 
 void fsm_setting() {
 	switch (status) {
@@ -70,32 +71,35 @@ void fsm_setting() {
 		lcd_goto_XY(2, 0);
 		lcd_send_string(" YELLOW TIME: ");
 		lcd_display_value(2, 14, set_yellow);
-
-		if (isButtonPressed(2) == 1) {
+		if (isButtonPressed(2) == 1 && set_green + set_yellow != set_red) {
+			status = FIX;
+		} else {
+			upvalue();
+		}
+		if (isButtonPressed(0) == 1) {
+			status = AUTO_RED_GREEN;
+			setTimer(1, 1000);
+			lcd_clear_display();
 			Light1(RESET, RESET);
 			Light2(RESET, RESET);
 			Light3(RESET, RESET);
 			Light4(RESET, RESET);
-			if (set_green + set_yellow != set_red) {
-				lcd_clear_display();
-				lcd_goto_XY(1, 0);
-				lcd_send_string("cai mon cho ma");
-				lcd_goto_XY(2, 0);
-				lcd_send_string("d hoc nua ");
-				if (timer_flag[2] == 1) {
-					status = SET_RED;
-					setTimer(2,3000);
-				}
-			} else {
-				status = AUTO_RED_GREEN;
-				setTimer(1, 1000);
-				lcd_clear_display();
-				Light1(RESET, RESET);
-				Light2(RESET, RESET);
-				Light3(RESET, RESET);
-				Light4(RESET, RESET);
-				upvalue();
-			}
+
+		}
+		break;
+	case FIX:
+		Light1(RESET, RESET);
+		Light2(RESET, RESET);
+		Light3(RESET, RESET);
+		Light4(RESET, RESET);
+		lcd_goto_XY(1, 0);
+		lcd_send_string("CAI MON CHO MA");
+		lcd_goto_XY(2, 0);
+		lcd_send_string("LAI 10 DIEM");
+		updateCountSet();
+		if (count_set >= 3) {
+			count_set = 0;
+			status = SET_RED;
 		}
 		break;
 	default:

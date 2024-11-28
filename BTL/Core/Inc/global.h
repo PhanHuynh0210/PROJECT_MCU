@@ -37,6 +37,7 @@
 #define SET_RED			15
 #define SET_GREEN		16
 #define SET_YELLOW		17
+#define FIX				18
 
 extern int status;
 

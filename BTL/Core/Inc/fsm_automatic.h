@@ -15,5 +15,6 @@ extern int count_set;
 void init_fsm_auto();
 void fsm_auto_run();
 void set();
+void  updateCountSet();
 
 #endif /* INC_FSM_AUTOMATIC_H_ */
