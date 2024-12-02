@@ -15,9 +15,10 @@
 #include <stdio.h>
 
 
-#define MAN_RED 		12
-#define MAN_GREEN 		13
-#define MAN_YELLOW 		14
+#define MAN_RED_GREEN 		12
+#define MAN_RED_YELLOW		13
+#define MAN_GREEN_RED 		14
+#define MAN_YELLOW_RED		20
 
 #define INIT				1
 #define AUTO_RED_GREEN		2
@@ -25,9 +26,9 @@
 #define AUTO_GREEN_RED		4
 #define AUTO_YELLOW_RED		5
 
-#define count_R		5
-#define count_G		3
-#define count_Y		2
+#define count_R		11
+#define count_G		6
+#define count_Y		5
 
 #define IDLE			6
 #define DEBOUNCE		7
@@ -38,6 +39,7 @@
 #define SET_GREEN		16
 #define SET_YELLOW		17
 #define FIX				18
+#define DONE			19
 
 extern int status;
 

@@ -23,8 +23,6 @@ void updateCountSet() {
 		count_set++;
 		setTimer(1, 1000);
 		lcd_clear_display();
-		setTimer(2,3000);
-
 	}
 }
 
@@ -36,8 +34,6 @@ void fsm_auto_run() {
 		Light3(RESET, RESET);
 		Light4(RESET, RESET);
 		setTimer(1, 1000);
-		setTimer(2, 3000);
-
 		set();
 		lcd_clear_display();
 		status = AUTO_RED_GREEN;
@@ -48,7 +44,6 @@ void fsm_auto_run() {
 		Light2(SET, RESET);
 		Light3(SET, SET);
 		Light4(SET, RESET);
-
 		seg1 = red_value - count_set;
 		seg2 = green_value - count_set;
 		lcd_display_value(1, 0, seg1);
@@ -58,13 +53,14 @@ void fsm_auto_run() {
 			count_set = 0;
 			status = AUTO_RED_YELLOW;
 		}
+		if (isButtonLongPressed(1) == 1) {
+			status = MAN_RED_GREEN;
+			lcd_clear_display();
+			set();
+		}
 		if (isButtonPressed(0) == 1) {
 			set();
-			status = MAN_RED;
-			Light1(RESET, RESET);
-			Light2(RESET, RESET);
-			Light3(RESET, RESET);
-			Light4(RESET, RESET);
+			status = SET_RED;
 		}
 		break;
 
@@ -73,24 +69,24 @@ void fsm_auto_run() {
 		Light2(RESET, SET);
 		Light3(SET, SET);
 		Light4(RESET, SET);
-
 		seg1 = yellow_value - count_set;
 		seg2 = yellow_value - count_set;
 		lcd_display_value(1, 0, seg1);
 		lcd_display_value(2, 0, seg2);
-
 		updateCountSet();
 		if (count_set >= red_value - green_value) {
 			count_set = 0;
 			status = AUTO_GREEN_RED;
 		}
+
+		if (isButtonLongPressed(1) == 1) {
+			lcd_clear_display();
+			status = MAN_RED_GREEN;
+			set();
+		}
 		if (isButtonPressed(0) == 1) {
 			set();
-			status = MAN_RED;
-			Light1(RESET, RESET);
-			Light2(RESET, RESET);
-			Light3(RESET, RESET);
-			Light4(RESET, RESET);
+			status = SET_RED;
 		}
 		break;
 
@@ -109,13 +105,16 @@ void fsm_auto_run() {
 			count_set = 0;
 			status = AUTO_YELLOW_RED;
 		}
+
+		if (isButtonLongPressed(1) == 1) {
+			lcd_clear_display();
+			status = MAN_RED_GREEN;
+			set();
+		}
 		if (isButtonPressed(0) == 1) {
 			set();
-			status = MAN_RED;
-			Light1(RESET, RESET);
-			Light2(RESET, RESET);
-			Light3(RESET, RESET);
-			Light4(RESET, RESET);
+			status = SET_RED;
+
 		}
 		break;
 
@@ -133,26 +132,18 @@ void fsm_auto_run() {
 		if (count_set >= red_value - green_value) {
 			count_set = 0;
 			status = AUTO_RED_GREEN;
+			set();
+		}
+		if (isButtonLongPressed(1) == 1) {
+			lcd_clear_display();
+			status = MAN_RED_GREEN;
 		}
 		if (isButtonPressed(0) == 1) {
 			set();
-			status = MAN_RED;
-			Light1(RESET, RESET);
-			Light2(RESET, RESET);
-			Light3(RESET, RESET);
-			Light4(RESET, RESET);
-		}
-		if (isButtonPressed(2) == 1) {
-			status = AUTO_RED_GREEN;
-			setTimer(1, 1000);
-			lcd_clear_display();
-			Light1(RESET, RESET);
-			Light2(RESET, RESET);
-			Light3(RESET, RESET);
-			Light4(RESET, RESET);
-			upvalue();
+			status = SET_RED;
 
 		}
+
 		break;
 
 	default:

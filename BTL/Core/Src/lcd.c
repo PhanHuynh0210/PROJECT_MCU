@@ -7,6 +7,7 @@
 
 #include "lcd.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 extern I2C_HandleTypeDef hi2c1;  // change your handler here accordingly
 
@@ -64,11 +65,16 @@ void lcd_clear_display(void) {
 	lcd_send_cmd(0x01); //clear display
 }
 void lcd_display_value(int row, int col, int value) {
-    char buffer[16];
-    sprintf(buffer, "%d", value);
+    char *buffer = (char *)malloc(5 * sizeof(char)); // Cấp phát động 5 bytes (đủ cho 4 chữ số và '\0')
+    if (buffer == NULL) return; // Kiểm tra cấp phát thành công
+
+    sprintf(buffer, "%-11d", value); // Chuyển giá trị thành chuỗi
     lcd_goto_XY(row, col);
     lcd_send_string(buffer);
+
+    free(buffer); // Giải phóng bộ nhớ sau khi dùng
 }
+
 
 
 void lcd_goto_XY(int row, int col) {

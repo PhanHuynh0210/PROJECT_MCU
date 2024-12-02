@@ -1,7 +1,7 @@
-../Core/Src/lcd.c:15:6:lcd_send_cmd	1
-../Core/Src/lcd.c:28:6:lcd_send_data	1
-../Core/Src/lcd.c:41:6:lcd_init	1
-../Core/Src/lcd.c:58:6:lcd_send_string	2
-../Core/Src/lcd.c:63:6:lcd_clear_display	1
-../Core/Src/lcd.c:66:6:lcd_display_value	1
-../Core/Src/lcd.c:74:6:lcd_goto_XY	2
+../Core/Src/lcd.c:16:6:lcd_send_cmd	1
+../Core/Src/lcd.c:29:6:lcd_send_data	1
+../Core/Src/lcd.c:42:6:lcd_init	1
+../Core/Src/lcd.c:59:6:lcd_send_string	2
+../Core/Src/lcd.c:64:6:lcd_clear_display	1
+../Core/Src/lcd.c:67:6:lcd_display_value	2
+../Core/Src/lcd.c:80:6:lcd_goto_XY	2
